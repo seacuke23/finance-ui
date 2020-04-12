@@ -10,7 +10,7 @@ export class TransactionTableComponent implements OnInit {
   transactions=[];
 	constructor(private transactionService: TransactionService) { }
 	ngOnInit() {
-		this.transactionService.get().subscribe((data: any[])=>{  
+		this.transactionService.getUnverified().subscribe((data: any[])=>{  
       console.log(data);
       this.transactions=data;  
 		})  

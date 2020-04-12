@@ -12,4 +12,7 @@ export class TransactionService {
 	public get(){  
 		return this.httpClient.get(environment.apiURL + "/test");  
 	}  
+	public getUnverified(){  
+		return this.httpClient.get(environment.apiURL + "/trans?unverified=true");  
+	}  
 }
