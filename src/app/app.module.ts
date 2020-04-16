@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TransactionTableComponent } from './transaction-table/transaction-table.component';
+import {ApiModule} from 'something'
 
 @NgModule({
   declarations: [
@@ -12,7 +13,9 @@ import { TransactionTableComponent } from './transaction-table/transaction-table
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    ApiModule
+//    ApiModule.forRoot(IdentityService.getApiConfiguration);
   ],
   providers: [],
   bootstrap: [AppComponent]

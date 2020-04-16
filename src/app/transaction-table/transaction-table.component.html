@@ -1,5 +1,13 @@
-<table>
-    <tr *ngFor="let transaction of transactions">
-        <td>{{transaction.id}}</td><td>{{transaction.amount}}</td><td>{{transaction.category}}</td><td>{{transaction.detail1}}</td><td>{{transaction.detail2}}</td>
-    </tr>
-</table>
+<form>
+    <table>
+        <tr *ngFor="let transaction of transactions">
+            <td>{{transaction.id}}</td>
+            <td>{{transaction.amount}}</td>
+            <td><select #t (change)="updateCategory(t.value, transaction)">
+                    <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+                </select></td>
+            <td>{{transaction.detail1}}</td>
+            <td>{{transaction.detail2}}</td>
+        </tr>
+    </table>
+</form>
