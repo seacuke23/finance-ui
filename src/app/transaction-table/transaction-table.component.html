@@ -1,11 +1,15 @@
 <form>
     <table>
-        <tr *ngFor="let transaction of transactions">
+        <tr *ngFor="let transaction of transactions;let index = index;">
             <td>{{transaction.id}}</td>
+            <td>{{transaction.date | date}}</td>
             <td>{{transaction.amount}}</td>
-            <td><select #t (change)="updateCategory(t.value, transaction)">
-                    <option *ngFor="let cat of categories" [value]="cat.id">{{cat.name}}</option>
+            <td><select #t (change)="updateTransaction(transactions[index], +t.value, VERIFIED_STATE)"
+                [ngModel]="transactions[index].category" name="selectedCategory--{{index}}">
+                    <option *ngFor="let cat of categories" [value]="cat.id" [disabled]="cat.id===null"
+                        >{{cat.name}}</option>
                 </select></td>
+                <td><button (click)="updateTransaction(transactions[index], null, IGNORED_STATE)">Ignore</button></td>
             <td>{{transaction.detail1}}</td>
             <td>{{transaction.detail2}}</td>
         </tr>
